@@ -1,9 +1,14 @@
 <html>
 	<head>
 		<style>
+			body {
+				background-color: #000000;
+				color: white;
+			}
 			.gridSquare {
-				width: 2.5em;
-				height: 2.5em;
+				width: 8vw;
+				height: 8vw;
+				aspect-ratio: 1;
 				border: 0;
 				margin-left: 1px;
 				margin-bottom: 1px;
@@ -22,7 +27,7 @@
 				background-color: #2c5be6;
 			}
 			.gridSquare.move {
-				background-color: #00d9ff;
+				background-color: #049aff;
 			}
 			.gridSquare.pending {
 				background-color: #ff00f2;
@@ -30,54 +35,35 @@
 			.gridSquare:hover {
 				opacity: 0.85;
 			}
-			.control {
-				background: #2c5be6;
-				border-radius: 2px;
-				border: 0;
-				outline: none;
-				height: 27px;
-				min-width: 27px;
-				padding: 6px;
-				padding-left: 10px;
-				padding-right: 10px;
-				color: white;
-			}
 			
 			.center {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-			}
-
-			.control:hover {
-				opacity: 0.9;
-			}
-			
-			.control:active {
-				opacity: 0.8;
-				box-shadow: 1px 1px 3px grey;
-			}
-			
-			input[type=number], input[type=text] {
-				min-width: 27px;
-				outline: none;
-				border: 1px solid #afafaf;
-				border-radius: 2px;
-				height: 27px;
-				padding-left: 10px;
-				padding-right: 10px;
-			}
-			
-			label {
-				font-family: sans-serif;
-				color: #333333;
+				text-align: center;
 			}
 		</style>
 	</head>
 	<body>
 		<div class="center">
-			<div id="board" style="display: block;"></div>
+			<h1>Peg Solitaire</h1>
+			<p>
+				Blue: Peg<br/>
+				Light Blue: Moveable peg<br/>
+				Purple: Space to jump to<br/>
+				Grey: Empty hole<br/>
+			</p>
+			
+			<div id="board"></div>
+			<p>
+				<b>Instructions:</b> The board starts with the middle peg missing and the aim is to end with only the middle peg populated.
+			</p>
+			<p>
+				Pegs that are light blue coloured are able to be moved by jumping over another peg into an emtpy spot. Click the light blue peg to move it.
+			</p>
+			<p>
+				If there are multiple spaces that the peg can jump to, they will appear in purple. Click the purple space to complete the desired move.
+			</p>
+			<p>
+				Refresh the page to start again.
+			</p>
 		</div>
 		<script type="text/javascript">
 let grid = [];
